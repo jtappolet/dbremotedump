@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivx.tools</groupId>
   <artifactId>DBRemoteDump</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -23,6 +23,29 @@
         <autoVersionSubmodules>true</autoVersionSubmodules>
       </configuration>
     </plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>create-single-jar</id>
+      <phase>package</phase>
+      <goals>
+        <goal>single</goal>
+      </goals>
+      <configuration>
+          <archive>
+      <manifest>
+        <mainClass>ch.ivx.tools.DBMailDump</mainClass>
+      </manifest>
+    </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
     </plugins>
   </build>
   <dependencies>
@@ -39,7 +62,7 @@
   	<dependency>
   		<groupId>mysql</groupId>
   		<artifactId>mysql-connector-java</artifactId>
-  		<version>5.1.26</version>
+  		<version>5.1.26</version>	
   	</dependency>
   	<dependency>
   		<groupId>com.sun.mail</groupId>
@@ -54,6 +77,6 @@
   <connection>scm:git:https://github.com/jtappolet/dbremotedump.git</connection>
   <developerConnection>scm:git:git@github.com:jtappolet/dbremotedump.git</developerConnection>
   <url>https://github.com/jtappolet/dbremotedump</url>
-  <tag>HEAD</tag>
+  <tag>DBRemoteDump-0.0.1</tag>
 </scm>
 </project>
